@@ -12,8 +12,8 @@ interface GitHubGraphsProps {
 
 const theme = {
   dark: [
-    "#020617", // background (empty)
-    "#0f172a", // level 1
+    "#020617", // level 0 – no contributions (empty)
+    "#14532d", // level 1 – 1+ contributions (visible dark green)
     "#166534", // level 2
     "#22c55e", // level 3
     "#4ade80", // level 4
