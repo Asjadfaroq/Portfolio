@@ -38,63 +38,6 @@ export function ContactSection() {
         </div>
         <div className="heading-divider" />
 
-        <form className="space-y-4 text-sm">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="space-y-5">
-              <label
-                htmlFor="name"
-                className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                placeholder="Your name"
-                className="h-10 w-full rounded-xl border border-slate-700/70 bg-slate-950/60 px-3 text-sm text-slate-100 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
-              />
-            </div>
-            <div className="space-y-5">
-              <label
-                htmlFor="email"
-                className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                className="h-10 w-full rounded-xl border border-slate-700/70 bg-slate-950/60 px-3 text-sm text-slate-100 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-5">
-            <label
-              htmlFor="message"
-              className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              placeholder="Tell me a bit about your project or idea..."
-              className="w-full rounded-xl border border-slate-700/70 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-medium text-slate-950 shadow-lg shadow-sky-500/40 transition hover:bg-sky-400"
-          >
-            Submit
-          </button>
-        </form>
-
         <div className="mt-6 border-t border-slate-800/80 pt-4 text-xs text-slate-500">
           <p>
             Source code available on{" "}
@@ -111,4 +54,3 @@ export function ContactSection() {
     </section>
   );
 }
-
