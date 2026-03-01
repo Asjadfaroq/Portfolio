@@ -191,10 +191,12 @@ export function TechStackSection() {
                 className="flex h-24 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-700/60 px-4 py-4 text-xs text-slate-200 shadow-md shadow-slate-900/70 sm:h-28"
                 style={{
                   backgroundColor: skill.bg,
+                  boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2)",
                 }}
                 whileHover={{
                   scale: 1.05,
                   y: -4,
+                  boxShadow: `0 0 20px ${skill.accent}40, 0 0 40px ${skill.accent}25, 0 8px 16px -4px rgb(0 0 0 / 0.4)`,
                   transition: { duration: 0.2 },
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
