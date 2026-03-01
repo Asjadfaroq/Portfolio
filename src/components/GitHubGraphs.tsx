@@ -12,11 +12,11 @@ interface GitHubGraphsProps {
 
 const theme = {
   dark: [
-    "#020617", // level 0 – no contributions (empty)
-    "#14532d", // level 1 – 1+ contributions (visible dark green)
-    "#166534", // level 2
-    "#22c55e", // level 3
-    "#4ade80", // level 4
+    "#0f172a", // level 0 – no contributions (empty, subtle slate)
+    "#15803d", // level 1
+    "#22c55e", // level 2 – bright green
+    "#4ade80", // level 3 – lime
+    "#86efac", // level 4 – very bright green
   ],
   light: [
     "#ebedf0",
@@ -65,9 +65,11 @@ export const GitHubGraphs: React.FC<GitHubGraphsProps> = ({
           theme={theme}
           colorScheme={colorScheme}
           showWeekdayLabels={false}
-          blockMargin={5}
+          blockSize={10}
+          blockMargin={2}
           transformData={transformRange}
           until={getDateRange().end}
+          labels={{ totalCount: "1091 contributions in the last year" }}
         />
       </div>
 
@@ -79,9 +81,11 @@ export const GitHubGraphs: React.FC<GitHubGraphsProps> = ({
           theme={theme}
           colorScheme={colorScheme}
           showWeekdayLabels={false}
-          blockMargin={5}
+          blockSize={10}
+          blockMargin={2}
           transformData={transformRange}
           until={getDateRange().end}
+          labels={{ totalCount: "1091 contributions in the last year" }}
         />
       </div>
     </>

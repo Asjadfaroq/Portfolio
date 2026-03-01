@@ -42,7 +42,7 @@ export function ContributionsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="w-full max-w-[680px] overflow-x-auto rounded-3xl border border-slate-700/80 px-4 py-3 shadow-lg shadow-slate-950/70 md:px-6 md:py-4">
+          <div className="github-calendar-fill w-full max-w-[680px] overflow-x-auto rounded-3xl border border-slate-700/80 px-4 py-3 shadow-lg shadow-slate-950/70 md:px-6 md:py-4">
             <GitHubGraphs username="Asjadfaroq" colorScheme="dark" />
           </div>
         </motion.div>
