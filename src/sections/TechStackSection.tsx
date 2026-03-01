@@ -22,6 +22,14 @@ import {
   SiCloudflare,
   SiDotnet,
   SiSqlite,
+  SiRedis,
+  SiGraphql,
+  SiJest,
+  SiPrisma,
+  SiKubernetes,
+  SiFigma,
+  SiSwagger,
+  SiStorybook,
 } from "react-icons/si";
 
 const skills = [
@@ -170,6 +178,54 @@ const skills = [
     bg: "#020617",
     accent: "#E5E7EB",
   },
+  {
+    label: "Redis",
+    icon: SiRedis,
+    bg: "#020617",
+    accent: "#DC382D",
+  },
+  {
+    label: "GraphQL",
+    icon: SiGraphql,
+    bg: "#020617",
+    accent: "#E10098",
+  },
+  {
+    label: "Jest",
+    icon: SiJest,
+    bg: "#020617",
+    accent: "#C21325",
+  },
+  {
+    label: "Prisma",
+    icon: SiPrisma,
+    bg: "#020617",
+    accent: "#0EA5E9",
+  },
+  {
+    label: "Kubernetes",
+    icon: SiKubernetes,
+    bg: "#020617",
+    accent: "#326CE5",
+  },
+  {
+    label: "Figma",
+    icon: SiFigma,
+    bg: "#020617",
+    accent: "#F24E1E",
+  },
+  {
+    label: "Swagger",
+    icon: SiSwagger,
+    bg: "#020617",
+    accent: "#85EA2D",
+  },
+  {
+    label: "Storybook",
+    icon: SiStorybook,
+    bg: "#020617",
+    accent: "#FF4785",
+  },
 ];
 
 const containerVariants = {
@@ -188,7 +244,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
