@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaUsers, FaHeart, FaEye } from "react-icons/fa6";
+import { FaGithub, FaFolderOpen, FaHeart, FaEye, FaCodeCommit } from "react-icons/fa6";
 import { GitHubGraphs } from "@/components/GitHubGraphs";
 
 const statVariants = {
@@ -60,9 +60,9 @@ export function ContributionsSection() {
         >
           <div className="grid w-full max-w-[640px] gap-6 text-[0.8rem] text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: FaUsers, label: "Followers", value: "173", color: "sky" },
-              { icon: FaUsers, label: "Following", value: "41", color: "sky" },
+              { icon: FaFolderOpen, label: "Repositories", value: "24", color: "sky" },
               { icon: FaHeart, label: "Love Count", value: "1475", color: "pink" },
+              { icon: FaCodeCommit, label: "Contributions", value: "1091", color: "sky" },
               { icon: FaEye, label: "Views", value: "12393", color: "sky" },
             ].map((stat) => {
               const Icon = stat.icon;
@@ -83,9 +83,7 @@ export function ContributionsSection() {
                 />
                 <span className="text-[0.8rem]">{stat.label}</span>
                 <div
-                  className={`text-base font-semibold ${
-                    stat.color === "pink" ? "text-pink-400" : "text-slate-50"
-                  }`}
+                  className={`text-base font-semibold ${stat.color === "pink" ? "text-pink-400" : "text-slate-50"}`}
                 >
                   {stat.value}
                 </div>
