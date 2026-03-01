@@ -20,6 +20,8 @@ import {
   SiGit,
   SiPostman,
   SiCloudflare,
+  SiDotnet,
+  SiSqlite,
 } from "react-icons/si";
 
 const skills = [
@@ -131,6 +133,43 @@ const skills = [
     bg: "#020617",
     accent: "#FDBA74",
   },
+  // .NET & SQL ecosystem
+  {
+    label: ".NET",
+    icon: SiDotnet,
+    bg: "#020617",
+    accent: "#512BD4",
+  },
+  {
+    label: "C#",
+    icon: null,
+    bg: "#020617",
+    accent: "#239120",
+  },
+  {
+    label: "ASP.NET Core",
+    icon: null,
+    bg: "#020617",
+    accent: "#512BD4",
+  },
+  {
+    label: "SQL Server",
+    icon: SiSqlite,
+    bg: "#020617",
+    accent: "#CC2927",
+  },
+  {
+    label: "EF Core",
+    icon: null,
+    bg: "#020617",
+    accent: "#512BD4",
+  },
+  {
+    label: "LINQ",
+    icon: null,
+    bg: "#020617",
+    accent: "#E5E7EB",
+  },
 ];
 
 const containerVariants = {
@@ -180,7 +219,7 @@ export function TechStackSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-3 gap-3.5 sm:grid-cols-4 md:grid-cols-6"
+          className="grid grid-cols-4 gap-2.5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8"
         >
           {skills.map((skill) => {
             const Icon = skill.icon;
@@ -188,7 +227,7 @@ export function TechStackSection() {
               <motion.div
                 key={skill.label}
                 variants={itemVariants}
-                className="flex h-24 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-700/60 px-4 py-4 text-xs text-slate-200 shadow-md shadow-slate-900/70 sm:h-28"
+                className="flex h-20 flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-700/60 px-2.5 py-2.5 text-slate-200 shadow-md shadow-slate-900/70"
                 style={{
                   backgroundColor: skill.bg,
                   boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2)",
@@ -202,7 +241,7 @@ export function TechStackSection() {
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <div
-                  className="flex h-9 w-9 items-center justify-center rounded-xl text-lg sm:h-10 sm:w-10 sm:text-xl"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm sm:h-8 sm:w-8 sm:text-base"
                   style={{
                     backgroundColor: "#020617",
                     color: skill.accent,
@@ -210,17 +249,17 @@ export function TechStackSection() {
                   }}
                 >
                   {Icon ? (
-                    <Icon />
+                    <Icon className="size-full p-0.5" />
                   ) : (
                     <span
-                      className="text-[0.7rem]"
+                      className="text-[0.55rem] font-bold leading-none"
                       style={{ color: skill.accent }}
                     >
-                      EX
+                      {skill.label === "C#" ? "C#" : skill.label === "EF Core" ? "EF" : skill.label === "ASP.NET Core" ? "ASP" : skill.label === "LINQ" ? "LINQ" : "EX"}
                     </span>
                   )}
                 </div>
-                <span className="text-[0.72rem]">{skill.label}</span>
+                <span className="text-[0.6rem] leading-tight text-center font-medium truncate w-full max-w-full">{skill.label}</span>
               </motion.div>
             );
           })}
