@@ -30,6 +30,26 @@ const techColors: Record<string, string> = {
   Redux: "#a855f7",
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 const projects = [
   {
     title: "ResearchX",
@@ -83,11 +103,22 @@ export function ProjectsSection() {
         </div>
         <div className="heading-divider" />
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid gap-5 md:grid-cols-2"
+        >
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.title}
-              className="flex flex-col overflow-hidden rounded-2xl border border-slate-700/70 text-sm text-slate-200 shadow-lg shadow-slate-900/70"
+              variants={cardVariants}
+              className="flex flex-col overflow-hidden rounded-2xl border border-slate-700/70 text-sm text-slate-200 shadow-lg shadow-slate-900/70 transition-colors hover:border-slate-600/80"
+              whileHover={{
+                y: -6,
+                transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
+              }}
             >
               <div className="relative h-40 w-full overflow-hidden bg-slate-900/70 sm:h-44">
                 <div className="absolute inset-0 bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900 opacity-80" />
@@ -119,22 +150,22 @@ export function ProjectsSection() {
               <div className="flex items-center gap-4 px-4 pb-3 pt-1 text-xs font-medium">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-1.5 text-sky-400 transition hover:text-sky-300"
+                  className="inline-flex items-center gap-1.5 text-sky-400 transition-colors duration-200 hover:text-sky-300"
                 >
                   <FaArrowUpRightFromSquare className="text-sm" />
                   <span>Live Demo</span>
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-1.5 text-slate-400 transition hover:text-slate-200"
+                  className="inline-flex items-center gap-1.5 text-slate-400 transition-colors duration-200 hover:text-slate-200"
                 >
                   <FaGithub className="text-sm" />
                   <span>GitHub</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

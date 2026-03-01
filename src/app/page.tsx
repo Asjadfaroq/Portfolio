@@ -5,19 +5,22 @@ import { ProjectsSection } from "@/sections/ProjectsSection";
 import { ContributionsSection } from "@/sections/ContributionsSection";
 import { ContactSection } from "@/sections/ContactSection";
 import { Navbar } from "@/components/Navbar";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function Home() {
   return (
     <div className="min-h-screen text-slate-100">
       <Navbar />
-      <main className="space-y-6 pb-12 pt-4 md:space-y-8 md:pt-6">
-        <HeroSection />
-        <JourneySection />
-        <TechStackSection />
-        <ProjectsSection />
-        <ContributionsSection />
-        <ContactSection />
-      </main>
+      <PageTransition>
+        <main className="space-y-6 pb-12 pt-4 md:space-y-8 md:pt-6">
+          <HeroSection />
+          <JourneySection />
+          <TechStackSection />
+          <ProjectsSection />
+          <ContributionsSection />
+          <ContactSection />
+        </main>
+      </PageTransition>
     </div>
   );
 }

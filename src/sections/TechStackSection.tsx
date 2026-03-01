@@ -133,6 +133,26 @@ const skills = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 export function TechStackSection() {
   return (
     <section id="tech" className="section">
@@ -155,16 +175,29 @@ export function TechStackSection() {
         </div>
         <div className="heading-divider" />
 
-        <div className="grid grid-cols-3 gap-3.5 sm:grid-cols-4 md:grid-cols-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-3 gap-3.5 sm:grid-cols-4 md:grid-cols-6"
+        >
           {skills.map((skill) => {
             const Icon = skill.icon;
             return (
-              <div
+              <motion.div
                 key={skill.label}
+                variants={itemVariants}
                 className="flex h-24 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-700/60 px-4 py-4 text-xs text-slate-200 shadow-md shadow-slate-900/70 sm:h-28"
                 style={{
                   backgroundColor: skill.bg,
                 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -4,
+                  transition: { duration: 0.2 },
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <div
                   className="flex h-9 w-9 items-center justify-center rounded-xl text-lg sm:h-10 sm:w-10 sm:text-xl"
@@ -186,10 +219,10 @@ export function TechStackSection() {
                   )}
                 </div>
                 <span className="text-[0.72rem]">{skill.label}</span>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

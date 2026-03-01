@@ -3,12 +3,23 @@
 import { motion } from "framer-motion";
 import { FaBriefcase } from "react-icons/fa6";
 
+const sectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -16,24 +27,27 @@ export function JourneySection() {
   return (
     <section id="journey" className="section">
       <motion.div
-        variants={cardVariants}
+        variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         className="space-y-5 pb-6 pt-2 md:pt-4"
       >
-        <div className="flex items-center gap-3">
+        <motion.div variants={cardVariants} className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-900/80 text-sky-400 md:h-11 md:w-11">
             <FaBriefcase className="text-xl md:text-2xl" />
           </div>
           <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">
             Professional Journey
           </h2>
-        </div>
-        <div className="heading-divider" />
+        </motion.div>
+        <motion.div variants={cardVariants} className="heading-divider" />
 
         <div className="space-y-8">
-          <article className="space-y-3">
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <h3 className="text-base font-semibold text-slate-50">
@@ -73,9 +87,12 @@ export function JourneySection() {
                 the community.
               </li>
             </ul>
-          </article>
+          </motion.article>
 
-          <article className="space-y-3">
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <h3 className="text-base font-semibold text-slate-50">
@@ -90,7 +107,7 @@ export function JourneySection() {
               JavaScript, React, and backend fundamentals while working on
               real-world projects and code reviews.
             </p>
-          </article>
+          </motion.article>
         </div>
       </motion.div>
     </section>
