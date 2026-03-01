@@ -51,42 +51,16 @@ export function JourneySection() {
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <h3 className="text-base font-semibold text-slate-50">
-                  GSSoC&apos;25
+                  Rakeez Solutions
                 </h3>
-                <p className="text-sm text-sky-400">
-                  Project Admin/Maintainer
-                </p>
+                <p className="text-sm text-sky-400">Senior Software Engineer</p>
               </div>
-              <p className="text-xs text-slate-400">Aug 2025 – Sept 2025</p>
+              <p className="text-xs text-slate-400">Dec 2025 – Present · 4 mos</p>
             </div>
-            <p className="text-[1.02rem] leading-relaxed text-slate-200">
-              As a Project Admin, I reviewed code, merged pull requests, and
-              communicated with developers, ensuring smooth project workflow and
-              collaboration during GSSoC&apos;25. My full responsibilities
-              included:
+            <p className="text-xs text-slate-500">Riyadh, Saudi Arabia · On-site</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Driving AI and generative AI for HR and product. Software infrastructure and design at scale.
             </p>
-            <ul className="ml-4 list-disc space-y-1.5 text-[1.02rem] leading-relaxed text-slate-200 marker:text-sky-400">
-              <li>
-                Reviewed code submissions and resolved technical blockers to
-                maintain project quality.
-              </li>
-              <li>
-                Collaborated with fellow open-source developers on project
-                planning and implementation.
-              </li>
-              <li>
-                Designed and implemented UI/UX solutions with modern animation
-                libraries like Framer Motion and GSAP.
-              </li>
-              <li>
-                Managed API integrations and ensured smooth communication across
-                the development team.
-              </li>
-              <li>
-                Mentored contributors and facilitated knowledge sharing within
-                the community.
-              </li>
-            </ul>
           </motion.article>
 
           <motion.article
@@ -96,16 +70,91 @@ export function JourneySection() {
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <h3 className="text-base font-semibold text-slate-50">
-                  Sheryians Coding School
+                  Seha Invest
                 </h3>
-                <p className="text-sm text-sky-400">Trainee</p>
+                <p className="text-sm text-sky-400">Senior Software Engineer</p>
               </div>
-              <p className="text-xs text-slate-400">May 2025 – Oct 2025</p>
+              <p className="text-xs text-slate-400">Dec 2024 – Nov 2025 · 1 yr</p>
             </div>
-            <p className="text-[1.02rem] leading-relaxed text-slate-200">
-              Completed an intensive training program focused on modern
-              JavaScript, React, and backend fundamentals while working on
-              real-world projects and code reviews.
+            <p className="text-xs text-slate-500">Riyadh, Saudi Arabia · On-site</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Owned software infrastructure and system design. Scalable, production-grade systems and cross-functional delivery.
+            </p>
+          </motion.article>
+
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-slate-50">
+                  CanDev Software Agency
+                </h3>
+                <p className="text-sm text-sky-400">Full Stack Developer</p>
+              </div>
+              <p className="text-xs text-slate-400">Oct 2023 – Sep 2024 · 1 yr</p>
+            </div>
+            <p className="text-xs text-slate-500">Gujrat District, Punjab, Pakistan · Hybrid</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Led full-stack and cross-platform delivery from design to production. APIs, data layer, CI/CD, and cloud deployments.
+            </p>
+          </motion.article>
+
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-slate-50">
+                  GulzarSoft
+                </h3>
+                <p className="text-sm text-sky-400">Full-Stack Developer</p>
+              </div>
+              <p className="text-xs text-slate-400">Oct 2022 – Sep 2023 · 1 yr</p>
+            </div>
+            <p className="text-xs text-slate-500">Gujrat District, Punjab, Pakistan · On-site</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Led cloud-based streaming product end-to-end. APIs, media pipelines, payments, and live production deployments.
+            </p>
+          </motion.article>
+
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-slate-50">
+                  PureLogics
+                </h3>
+                <p className="text-sm text-sky-400">Frontend Developer</p>
+              </div>
+              <p className="text-xs text-slate-400">Mar 2022 – Aug 2022 · 6 mos</p>
+            </div>
+            <p className="text-xs text-slate-500">Lahore, Punjab, Pakistan · On-site</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Built responsive UIs, payments, and API integration. Agile delivery for enterprise and customer-facing applications.
+            </p>
+          </motion.article>
+
+          <motion.article
+            variants={cardVariants}
+            className="space-y-3 rounded-2xl border border-slate-800/50 bg-slate-950/30 p-4 transition-colors hover:border-slate-700/50 md:p-5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-slate-50">
+                  Cyber Silo
+                </h3>
+                <p className="text-sm text-sky-400">Frontend Developer</p>
+              </div>
+              <p className="text-xs text-slate-400">Feb 2021 – Jan 2022 · 1 yr</p>
+            </div>
+            <p className="text-xs text-slate-500">Lahore, Punjab, Pakistan · On-site</p>
+            <p className="text-[0.95rem] leading-relaxed text-slate-200 max-w-xl">
+              Developed dynamic, responsive web and mobile applications with component-based architecture. REST APIs, auth, and production-ready delivery.
             </p>
           </motion.article>
         </div>
