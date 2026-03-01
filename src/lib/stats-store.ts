@@ -7,10 +7,10 @@
 const VIEWS_KEY = "portfolio_views";
 const LOVE_KEY = "portfolio_love";
 
-// In-memory fallback when KV is not configured
+// In-memory fallback when KV is not configured (starting values for display)
 const memory: Record<string, number> = {
-  [VIEWS_KEY]: 0,
-  [LOVE_KEY]: 0,
+  [VIEWS_KEY]: 12473,
+  [LOVE_KEY]: 1476,
 };
 
 async function getFromKv(key: string): Promise<number | null> {
