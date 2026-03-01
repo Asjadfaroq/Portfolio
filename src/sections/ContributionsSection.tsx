@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaFolderOpen, FaHeart, FaEye, FaCodeCommit } from "react-icons/fa6";
 import { GitHubGraphs } from "@/components/GitHubGraphs";
@@ -9,11 +10,64 @@ const statVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
+async function fetchStats(): Promise<{ views: number; loveCount: number; loved?: boolean }> {
+  const res = await fetch("/api/stats", { cache: "no-store" });
+  if (!res.ok) return { views: 0, loveCount: 0, loved: false };
+  return res.json();
+}
+
+async function registerView(): Promise<number> {
+  const res = await fetch("/api/stats/view", { method: "POST", credentials: "include" });
+  if (!res.ok) return 0;
+  const data = await res.json();
+  return data.views ?? 0;
+}
+
+async function sendLove(): Promise<{ loveCount: number; alreadyLoved: boolean }> {
+  const res = await fetch("/api/stats/love", { method: "POST", credentials: "include" });
+  if (!res.ok) return { loveCount: 0, alreadyLoved: false };
+  return res.json();
+}
+
 export function ContributionsSection() {
+  const [views, setViews] = useState<number | null>(null);
+  const [loveCount, setLoveCount] = useState<number | null>(null);
+  const [loved, setLoved] = useState(false);
+  const [loveLoading, setLoveLoading] = useState(false);
+
+  useEffect(() => {
+    let ignore = false;
+    (async () => {
+      const stats = await fetchStats();
+      if (ignore) return;
+      setViews(stats.views);
+      setLoveCount(stats.loveCount);
+      setLoved(!!stats.loved);
+      const newViews = await registerView();
+      if (ignore) return;
+      setViews(newViews);
+    })();
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  const onLoveClick = useCallback(async () => {
+    if (loved || loveLoading) return;
+    setLoveLoading(true);
+    try {
+      const { loveCount: next } = await sendLove();
+      setLoveCount(next);
+      setLoved(true);
+    } finally {
+      setLoveLoading(false);
+    }
+  }, [loved, loveLoading]);
+
   return (
     <section id="contributions" className="section">
       <motion.div
@@ -59,37 +113,63 @@ export function ContributionsSection() {
           }}
         >
           <div className="grid w-full max-w-[640px] gap-6 text-[0.8rem] text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: FaFolderOpen, label: "Repositories", value: "24", color: "sky" },
-              { icon: FaHeart, label: "Love Count", value: "1475", color: "pink" },
-              { icon: FaCodeCommit, label: "Contributions", value: "1091", color: "sky" },
-              { icon: FaEye, label: "Views", value: "12393", color: "sky" },
-            ].map((stat) => {
-              const Icon = stat.icon;
-              return (
-              <motion.div
-                key={stat.label}
-                variants={statVariants}
-                className={`flex min-h-[88px] min-w-[150px] flex-col items-center justify-between rounded-2xl border bg-slate-950/80 px-5 py-3 text-center transition-colors hover:border-opacity-80 ${
-                  stat.color === "pink"
-                    ? "border-pink-500/50 hover:border-pink-400/60"
-                    : "border-sky-500/40 hover:border-sky-400/60"
-                }`}
-                whileHover={{ scale: 1.03, y: -2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              >
-                <Icon
-                  className={`mb-1 text-lg ${stat.color === "pink" ? "text-pink-400" : "text-sky-400"}`}
-                />
-                <span className="text-[0.8rem]">{stat.label}</span>
-                <div
-                  className={`text-base font-semibold ${stat.color === "pink" ? "text-pink-400" : "text-slate-50"}`}
-                >
-                  {stat.value}
-                </div>
-              </motion.div>
-            );
-            })}
+            <motion.div
+              variants={statVariants}
+              className="flex min-h-[88px] min-w-[150px] flex-col items-center justify-between rounded-2xl border border-sky-500/40 bg-slate-950/80 px-5 py-3 text-center transition-colors hover:border-sky-400/60"
+              whileHover={{ scale: 1.03, y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <FaFolderOpen className="mb-1 text-lg text-sky-400" />
+              <span className="text-[0.8rem]">Repositories</span>
+              <div className="text-base font-semibold text-slate-50">24</div>
+            </motion.div>
+
+            <motion.button
+              type="button"
+              variants={statVariants}
+              onClick={onLoveClick}
+              disabled={loveLoading || loved}
+              className={`flex min-h-[88px] min-w-[150px] flex-col items-center justify-between rounded-2xl border bg-slate-950/80 px-5 py-3 text-center transition-colors hover:border-opacity-80 disabled:pointer-events-none disabled:opacity-90 ${
+                loved
+                  ? "border-pink-400/60 cursor-default"
+                  : "border-pink-500/50 hover:border-pink-400/60 cursor-pointer"
+              }`}
+              whileHover={loved ? undefined : { scale: 1.03, y: -2 }}
+              whileTap={loved ? undefined : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <FaHeart
+                className={`mb-1 text-lg ${loved ? "text-pink-400 fill-pink-400" : "text-pink-400"}`}
+              />
+              <span className="text-[0.8rem]">Love Count</span>
+              <div className="text-base font-semibold text-pink-400">
+                {loveCount !== null ? loveCount.toLocaleString() : "—"}
+              </div>
+            </motion.button>
+
+            <motion.div
+              variants={statVariants}
+              className="flex min-h-[88px] min-w-[150px] flex-col items-center justify-between rounded-2xl border border-sky-500/40 bg-slate-950/80 px-5 py-3 text-center transition-colors hover:border-sky-400/60"
+              whileHover={{ scale: 1.03, y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <FaCodeCommit className="mb-1 text-lg text-sky-400" />
+              <span className="text-[0.8rem]">Contributions</span>
+              <div className="text-base font-semibold text-slate-50">1091</div>
+            </motion.div>
+
+            <motion.div
+              variants={statVariants}
+              className="flex min-h-[88px] min-w-[150px] flex-col items-center justify-between rounded-2xl border border-sky-500/40 bg-slate-950/80 px-5 py-3 text-center transition-colors hover:border-sky-400/60"
+              whileHover={{ scale: 1.03, y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <FaEye className="mb-1 text-lg text-sky-400" />
+              <span className="text-[0.8rem]">Views</span>
+              <div className="text-base font-semibold text-slate-50">
+                {views !== null ? views.toLocaleString() : "—"}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>
