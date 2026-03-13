@@ -10,6 +10,7 @@
    FaLocationDot,
  } from "react-icons/fa6";
  import { BackgroundOrbits } from "@/components/BackgroundOrbits";
+ import portfolioImage from "../../assets/images/portfolio_image.png";
 
  const containerVariants = {
    hidden: { opacity: 0 },
@@ -52,15 +53,16 @@ const itemVariants = {
           <div className="flex flex-col items-center gap-3">
              <motion.div
                variants={itemVariants}
-              className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/90 shadow-[0_18px_45px_rgba(15,23,42,0.9)] sm:h-32 sm:w-32 md:h-40 md:w-40"
+               className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/90 shadow-[0_18px_45px_rgba(15,23,42,0.9)] sm:h-32 sm:w-32 md:h-40 md:w-40"
                whileHover={{ scale: 1.03, rotate: -1.5 }}
                transition={spring}
              >
                <Image
-                 src="/avatar-placeholder.svg"
-                 alt="Profile"
+                 src={portfolioImage}
+                 alt="Portrait of Asjad Farooq"
                  fill
                  className="object-cover"
+                 priority
                />
              </motion.div>
              <motion.div
