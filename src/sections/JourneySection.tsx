@@ -19,7 +19,10 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   },
 };
 
@@ -43,96 +46,90 @@ export function JourneySection() {
         </motion.div>
         <motion.div variants={cardVariants} className="heading-divider" />
 
-        <div className="relative space-y-3 before:absolute before:left-[1.1rem] before:top-1 before:h-[calc(100%-0.5rem)] before:w-px before:bg-gradient-to-b before:from-sky-500/50 before:via-slate-700/60 before:to-slate-800/0 md:before:left-6">
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/40 px-3 py-2.5 pl-5 shadow-[0_18px_35px_rgba(15,23,42,0.7)] ring-1 ring-slate-900/60 backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.2)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">Rakeez Solutions</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Dec 2025 – Present · 4 mos</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Senior Software Engineer · Riyadh, Saudi Arabia · On-site</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Driving AI and generative AI for HR and product. Software infrastructure and design at scale.
-            </p>
-          </motion.article>
+        <div className="relative space-y-3 before:absolute before:left-4 before:top-1 before:h-[calc(100%-0.5rem)] before:w-px before:bg-gradient-to-b before:from-sky-400/70 before:via-slate-600/70 before:to-slate-800/0 md:before:left-5">
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/85 shadow-[0_0_0_5px_rgba(56,189,248,0.55),0_0_22px_rgba(56,189,248,0.9)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/60 bg-slate-950/40 px-3 py-2.5 pl-6 shadow-[0_18px_45px_rgba(15,23,42,0.9)] ring-1 ring-slate-900/70 backdrop-blur-sm transition-colors hover:border-sky-500/70 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">Rakeez Solutions</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Dec 2025 – Present · 4 mos</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Senior Software Engineer · Riyadh, Saudi Arabia · On-site</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Driving AI and generative AI for HR and product. Software infrastructure and design at scale.
+              </p>
+            </article>
+          </motion.div>
 
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-5 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.16)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">Seha Invest</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Dec 2024 – Nov 2025 · 1 yr</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Senior Software Engineer · Riyadh, Saudi Arabia · On-site</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Owned software infrastructure and system design. Scalable, production-grade systems and cross-functional delivery.
-            </p>
-          </motion.article>
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/80 shadow-[0_0_0_5px_rgba(56,189,248,0.5),0_0_20px_rgba(56,189,248,0.85)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/60 bg-slate-950/35 px-3 py-2.5 pl-6 shadow-[0_14px_35px_rgba(15,23,42,0.85)] backdrop-blur-sm transition-colors hover:border-sky-500/70 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">Seha Invest</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Dec 2024 – Nov 2025 · 1 yr</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Senior Software Engineer · Riyadh, Saudi Arabia · On-site</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Owned software infrastructure and system design. Scalable, production-grade systems and cross-functional delivery.
+              </p>
+            </article>
+          </motion.div>
 
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-5 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.16)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">CanDev Software Agency</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Oct 2023 – Sep 2024 · 1 yr</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Full Stack Developer · Gujrat District, Punjab, Pakistan · Hybrid</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Led full-stack and cross-platform delivery from design to production. APIs, data layer, CI/CD, and cloud deployments.
-            </p>
-          </motion.article>
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/80 shadow-[0_0_0_5px_rgba(56,189,248,0.5),0_0_20px_rgba(56,189,248,0.85)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/60 bg-slate-950/35 px-3 py-2.5 pl-6 shadow-[0_14px_35px_rgba(15,23,42,0.85)] backdrop-blur-sm transition-colors hover:border-sky-500/70 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">CanDev Software Agency</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Oct 2023 – Sep 2024 · 1 yr</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Full Stack Developer · Gujrat District, Punjab, Pakistan · Hybrid</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Led full-stack and cross-platform delivery from design to production. APIs, data layer, CI/CD, and cloud deployments.
+              </p>
+            </article>
+          </motion.div>
 
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-5 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.16)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">GulzarSoft</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Oct 2022 – Sep 2023 · 1 yr</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Full-Stack Developer · Gujrat District, Punjab, Pakistan · On-site</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Led cloud-based streaming product end-to-end. APIs, media pipelines, payments, and live production deployments.
-            </p>
-          </motion.article>
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/80 shadow-[0_0_0_5px_rgba(56,189,248,0.5),0_0_20px_rgba(56,189,248,0.85)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/60 bg-slate-950/35 px-3 py-2.5 pl-6 shadow-[0_14px_35px_rgba(15,23,42,0.85)] backdrop-blur-sm transition-colors hover:border-sky-500/70 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">GulzarSoft</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Oct 2022 – Sep 2023 · 1 yr</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Full-Stack Developer · Gujrat District, Punjab, Pakistan · On-site</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Led cloud-based streaming product end-to-end. APIs, media pipelines, payments, and live production deployments.
+              </p>
+            </article>
+          </motion.div>
 
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-5 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.16)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">PureLogics</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Mar 2022 – Aug 2022 · 6 mos</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Frontend Developer · Lahore, Punjab, Pakistan · On-site</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Built responsive UIs, payments, and API integration. Agile delivery for enterprise and customer-facing applications.
-            </p>
-          </motion.article>
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/80 shadow-[0_0_0_5px_rgba(56,189,248,0.5),0_0_20px_rgba(56,189,248,0.85)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/60 bg-slate-950/35 px-3 py-2.5 pl-6 shadow-[0_14px_35px_rgba(15,23,42,0.85)] backdrop-blur-sm transition-colors hover:border-sky-500/70 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">PureLogics</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Mar 2022 – Aug 2022 · 6 mos</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Frontend Developer · Lahore, Punjab, Pakistan · On-site</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Built responsive UIs, payments, and API integration. Agile delivery for enterprise and customer-facing applications.
+              </p>
+            </article>
+          </motion.div>
 
-          <motion.article
-            variants={cardVariants}
-            className="group relative ml-6 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-5 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-7"
-          >
-            <div className="absolute left-[-1.1rem] top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-400/60 bg-slate-950 shadow-[0_0_0_4px_rgba(56,189,248,0.16)] md:left-[-1.5rem]" />
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-slate-50">Cyber Silo</h3>
-              <p className="text-[0.7rem] text-slate-400 tabular-nums">Feb 2021 – Jan 2022 · 1 yr</p>
-            </div>
-            <p className="text-[0.75rem] text-sky-400/90">Frontend Developer · Lahore, Punjab, Pakistan · On-site</p>
-            <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
-              Developed dynamic, responsive web and mobile applications with component-based architecture. REST APIs, auth, and production-ready delivery.
-            </p>
-          </motion.article>
+          <motion.div variants={cardVariants} className="relative">
+            <div className="absolute left-4 top-6 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-sky-300/80 bg-sky-400/80 shadow-[0_0_0_5px_rgba(56,189,248,0.5),0_0_20px_rgba(56,189,248,0.85)] md:left-5" />
+            <article className="group ml-8 space-y-1.5 rounded-xl border border-slate-800/50 bg-slate-950/30 px-3 py-2.5 pl-6 shadow-[0_14px_30px_rgba(15,23,42,0.7)] backdrop-blur-sm transition-colors hover:border-sky-600/60 md:ml-10 md:px-4 md:py-3 md:pl-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-50">Cyber Silo</h3>
+                <p className="text-[0.7rem] text-slate-400 tabular-nums">Feb 2021 – Jan 2022 · 1 yr</p>
+              </div>
+              <p className="text-[0.75rem] text-sky-400/90">Frontend Developer · Lahore, Punjab, Pakistan · On-site</p>
+              <p className="text-[0.85rem] leading-snug text-slate-300/90 max-w-xl">
+                Developed dynamic, responsive web and mobile applications with component-based architecture. REST APIs, auth, and production-ready delivery.
+              </p>
+            </article>
+          </motion.div>
         </div>
       </motion.div>
     </section>
