@@ -129,9 +129,9 @@ export function ProjectsSection() {
             <motion.div
               key={project.title}
               variants={cardVariants}
-              className="flex flex-col overflow-hidden rounded-2xl border border-slate-700/70 text-sm text-slate-200 shadow-lg shadow-slate-900/70 transition-colors hover:border-slate-600/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-700/70 text-sm text-slate-200 shadow-lg shadow-slate-900/70 transition-colors hover:border-slate-600/80"
               whileHover={{
-                y: -6,
+                y: -8,
                 transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
               }}
             >
@@ -140,12 +140,12 @@ export function ProjectsSection() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover scale-110"
+                  className="object-cover scale-105 transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-95" />
               </div>
-              <div className="flex flex-1 flex-col gap-3 bg-black p-4">
+              <div className="flex flex-1 flex-col gap-3 bg-black/95 p-4">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-base font-semibold text-slate-50">
                     {project.title}
