@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa6";
 import {
@@ -30,201 +31,88 @@ import {
   SiFigma,
   SiSwagger,
   SiStorybook,
+  SiPostgresql,
+  SiHuggingface,
+  SiGooglegemini,
 } from "react-icons/si";
 
-const skills = [
+type Skill = {
+  label: string;
+  icon: ComponentType<{ className?: string }> | null;
+  bg: string;
+  accent: string;
+  abbrev?: string;
+};
+
+const skillCategories: { title: string; skills: Skill[] }[] = [
   {
-    label: "JavaScript",
-    icon: SiJavascript,
-    bg: "#020617",
-    accent: "#F7DF1E",
+    title: "Frontend",
+    skills: [
+      { label: "JavaScript", icon: SiJavascript, bg: "#020617", accent: "#F7DF1E" },
+      { label: "TypeScript", icon: SiTypescript, bg: "#020617", accent: "#3178C6" },
+      { label: "React", icon: SiReact, bg: "#020617", accent: "#61DAFB" },
+      { label: "Next.js", icon: SiNextdotjs, bg: "#020617", accent: "#FFFFFF" },
+      { label: "Tailwind", icon: SiTailwindcss, bg: "#020617", accent: "#38BDF8" },
+      { label: "SCSS", icon: SiSass, bg: "#020617", accent: "#F472B6" },
+      { label: "Framer", icon: SiFramer, bg: "#020617", accent: "#E879F9" },
+      { label: "Redux", icon: SiRedux, bg: "#020617", accent: "#A855F7" },
+    ],
   },
   {
-    label: "TypeScript",
-    icon: SiTypescript,
-    bg: "#020617",
-    accent: "#3178C6",
+    title: "Backend",
+    skills: [
+      { label: "Node.js", icon: SiNodedotjs, bg: "#020617", accent: "#4ADE80" },
+      { label: "Express", icon: null, bg: "#020617", accent: "#E5E7EB", abbrev: "EX" },
+      { label: ".NET", icon: SiDotnet, bg: "#020617", accent: "#512BD4" },
+      { label: "C#", icon: null, bg: "#020617", accent: "#239120", abbrev: "C#" },
+      { label: "ASP.NET Core", icon: null, bg: "#020617", accent: "#512BD4", abbrev: "ASP" },
+      { label: "EF Core", icon: null, bg: "#020617", accent: "#512BD4", abbrev: "EF" },
+      { label: "LINQ", icon: null, bg: "#020617", accent: "#E5E7EB", abbrev: "LINQ" },
+      { label: "GraphQL", icon: SiGraphql, bg: "#020617", accent: "#E10098" },
+    ],
   },
   {
-    label: "Tailwind",
-    icon: SiTailwindcss,
-    bg: "#020617",
-    accent: "#38BDF8",
+    title: "Database & APIs",
+    skills: [
+      { label: "PostgreSQL", icon: SiPostgresql, bg: "#020617", accent: "#4169E1" },
+      { label: "MongoDB", icon: SiMongodb, bg: "#020617", accent: "#22C55E" },
+      { label: "Supabase", icon: SiSupabase, bg: "#020617", accent: "#3ECF8E" },
+      { label: "Redis", icon: SiRedis, bg: "#020617", accent: "#DC382D" },
+      { label: "Prisma", icon: SiPrisma, bg: "#020617", accent: "#0EA5E9" },
+      { label: "SQL Server", icon: SiSqlite, bg: "#020617", accent: "#CC2927" },
+      { label: "Sanity", icon: SiSanity, bg: "#020617", accent: "#F97316" },
+    ],
   },
   {
-    label: "SCSS",
-    icon: SiSass,
-    bg: "#020617",
-    accent: "#F472B6",
+    title: "AI & LLMs",
+    skills: [
+      { label: "Hugging Face", icon: SiHuggingface, bg: "#020617", accent: "#FFD21E" },
+      { label: "Groq", icon: null, bg: "#020617", accent: "#E85D04", abbrev: "Groq" },
+      { label: "Gemini", icon: SiGooglegemini, bg: "#020617", accent: "#8E75B2" },
+      { label: "OpenAI", icon: null, bg: "#020617", accent: "#412991", abbrev: "GPT" },
+      { label: "RAG", icon: null, bg: "#020617", accent: "#38BDF8", abbrev: "RAG" },
+      { label: "LLM", icon: null, bg: "#020617", accent: "#A78BFA", abbrev: "LLM" },
+    ],
   },
   {
-    label: "Framer",
-    icon: SiFramer,
-    bg: "#020617",
-    accent: "#E879F9",
+    title: "DevOps & Tools",
+    skills: [
+      { label: "Docker", icon: SiDocker, bg: "#020617", accent: "#3B82F6" },
+      { label: "Kubernetes", icon: SiKubernetes, bg: "#020617", accent: "#326CE5" },
+      { label: "Vercel", icon: SiVercel, bg: "#020617", accent: "#FFFFFF" },
+      { label: "Git", icon: SiGit, bg: "#020617", accent: "#F97316" },
+      { label: "Postman", icon: SiPostman, bg: "#020617", accent: "#FB923C" },
+      { label: "Cloudflare", icon: SiCloudflare, bg: "#020617", accent: "#FDBA74" },
+      { label: "Jest", icon: SiJest, bg: "#020617", accent: "#C21325" },
+    ],
   },
   {
-    label: "React",
-    icon: SiReact,
-    bg: "#020617",
-    accent: "#61DAFB",
-  },
-  {
-    label: "Redux",
-    icon: SiRedux,
-    bg: "#020617",
-    accent: "#A855F7",
-  },
-  {
-    label: "Next.js",
-    icon: SiNextdotjs,
-    bg: "#020617",
-    accent: "#FFFFFF",
-  },
-  {
-    label: "Node.js",
-    icon: SiNodedotjs,
-    bg: "#020617",
-    accent: "#4ADE80",
-  },
-  {
-    label: "Express",
-    icon: null,
-    bg: "#020617",
-    accent: "#E5E7EB",
-  },
-  {
-    label: "MongoDB",
-    icon: SiMongodb,
-    bg: "#020617",
-    accent: "#22C55E",
-  },
-  {
-    label: "Supabase",
-    icon: SiSupabase,
-    bg: "#020617",
-    accent: "#22C55E",
-  },
-  {
-    label: "Sanity",
-    icon: SiSanity,
-    bg: "#020617",
-    accent: "#F97316",
-  },
-  {
-    label: "Docker",
-    icon: SiDocker,
-    bg: "#020617",
-    accent: "#3B82F6",
-  },
-  {
-    label: "Vercel",
-    icon: SiVercel,
-    bg: "#020617",
-    accent: "#FFFFFF",
-  },
-  {
-    label: "Git",
-    icon: SiGit,
-    bg: "#020617",
-    accent: "#F97316",
-  },
-  {
-    label: "Postman",
-    icon: SiPostman,
-    bg: "#020617",
-    accent: "#FB923C",
-  },
-  {
-    label: "Cloudflare",
-    icon: SiCloudflare,
-    bg: "#020617",
-    accent: "#FDBA74",
-  },
-  // .NET & SQL ecosystem
-  {
-    label: ".NET",
-    icon: SiDotnet,
-    bg: "#020617",
-    accent: "#512BD4",
-  },
-  {
-    label: "C#",
-    icon: null,
-    bg: "#020617",
-    accent: "#239120",
-  },
-  {
-    label: "ASP.NET Core",
-    icon: null,
-    bg: "#020617",
-    accent: "#512BD4",
-  },
-  {
-    label: "SQL Server",
-    icon: SiSqlite,
-    bg: "#020617",
-    accent: "#CC2927",
-  },
-  {
-    label: "EF Core",
-    icon: null,
-    bg: "#020617",
-    accent: "#512BD4",
-  },
-  {
-    label: "LINQ",
-    icon: null,
-    bg: "#020617",
-    accent: "#E5E7EB",
-  },
-  {
-    label: "Redis",
-    icon: SiRedis,
-    bg: "#020617",
-    accent: "#DC382D",
-  },
-  {
-    label: "GraphQL",
-    icon: SiGraphql,
-    bg: "#020617",
-    accent: "#E10098",
-  },
-  {
-    label: "Jest",
-    icon: SiJest,
-    bg: "#020617",
-    accent: "#C21325",
-  },
-  {
-    label: "Prisma",
-    icon: SiPrisma,
-    bg: "#020617",
-    accent: "#0EA5E9",
-  },
-  {
-    label: "Kubernetes",
-    icon: SiKubernetes,
-    bg: "#020617",
-    accent: "#326CE5",
-  },
-  {
-    label: "Figma",
-    icon: SiFigma,
-    bg: "#020617",
-    accent: "#F24E1E",
-  },
-  {
-    label: "Swagger",
-    icon: SiSwagger,
-    bg: "#020617",
-    accent: "#85EA2D",
-  },
-  {
-    label: "Storybook",
-    icon: SiStorybook,
-    bg: "#020617",
-    accent: "#FF4785",
+    title: "Design & Docs",
+    skills: [
+      { label: "Figma", icon: SiFigma, bg: "#020617", accent: "#F24E1E" },
+      { label: "Swagger", icon: SiSwagger, bg: "#020617", accent: "#85EA2D" },
+      { label: "Storybook", icon: SiStorybook, bg: "#020617", accent: "#FF4785" },
+    ],
   },
 ];
 
@@ -271,56 +159,72 @@ export function TechStackSection() {
         </div>
         <div className="heading-divider" />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-4 gap-2.5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8"
-        >
-          {skills.map((skill) => {
-            const Icon = skill.icon;
-            return (
+        <div className="space-y-8">
+          {skillCategories.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="space-y-3"
+            >
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                {category.title}
+              </h3>
               <motion.div
-                key={skill.label}
-                variants={itemVariants}
-                className="flex h-20 flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-700/60 px-2.5 py-2.5 text-slate-200 shadow-md shadow-slate-900/70"
-                style={{
-                  backgroundColor: skill.bg,
-                  boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2)",
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -4,
-                  boxShadow: `0 0 20px ${skill.accent}40, 0 0 40px ${skill.accent}25, 0 8px 16px -4px rgb(0 0 0 / 0.4)`,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                variants={containerVariants}
+                className="grid grid-cols-4 gap-2.5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8"
               >
-                <div
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm sm:h-8 sm:w-8 sm:text-base"
-                  style={{
-                    backgroundColor: "#020617",
-                    color: skill.accent,
-                    boxShadow: `0 0 0 1px ${skill.accent}33`,
-                  }}
-                >
-                  {Icon ? (
-                    <Icon className="size-full p-0.5" />
-                  ) : (
-                    <span
-                      className="text-[0.55rem] font-bold leading-none"
-                      style={{ color: skill.accent }}
+                {category.skills.map((skill) => {
+                  const Icon = skill.icon;
+                  const displayText = skill.abbrev ?? skill.label;
+                  return (
+                    <motion.div
+                      key={skill.label}
+                      variants={itemVariants}
+                      className="flex h-20 flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-700/60 px-2.5 py-2.5 text-slate-200 shadow-md shadow-slate-900/70"
+                      style={{
+                        backgroundColor: skill.bg,
+                        boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2)",
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        y: -4,
+                        boxShadow: `0 0 20px ${skill.accent}40, 0 0 40px ${skill.accent}25, 0 8px 16px -4px rgb(0 0 0 / 0.4)`,
+                        transition: { duration: 0.2 },
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
-                      {skill.label === "C#" ? "C#" : skill.label === "EF Core" ? "EF" : skill.label === "ASP.NET Core" ? "ASP" : skill.label === "LINQ" ? "LINQ" : "EX"}
-                    </span>
-                  )}
-                </div>
-                <span className="text-[0.6rem] leading-tight text-center font-medium truncate w-full max-w-full">{skill.label}</span>
+                      <div
+                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm sm:h-8 sm:w-8 sm:text-base"
+                        style={{
+                          backgroundColor: "#020617",
+                          color: skill.accent,
+                          boxShadow: `0 0 0 1px ${skill.accent}33`,
+                        }}
+                      >
+                        {Icon ? (
+                          <Icon className="size-full p-0.5" />
+                        ) : (
+                          <span
+                            className="text-[0.5rem] font-bold leading-none sm:text-[0.55rem]"
+                            style={{ color: skill.accent }}
+                          >
+                            {displayText}
+                          </span>
+                        )}
+                      </div>
+                      <span className="max-w-full truncate text-center text-[0.6rem] font-medium leading-tight">
+                        {skill.label}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
-            );
-          })}
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
