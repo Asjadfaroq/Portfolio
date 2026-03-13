@@ -12,7 +12,7 @@ export default function Home() {
     <div className="min-h-screen text-slate-100">
       <Navbar />
       <PageTransition>
-        <main className="space-y-6 pb-12 pt-4 md:space-y-8 md:pt-6">
+        <main className="space-y-10 pb-14 pt-6 md:space-y-12 md:pt-8">
           <HeroSection />
           <JourneySection />
           <TechStackSection />
