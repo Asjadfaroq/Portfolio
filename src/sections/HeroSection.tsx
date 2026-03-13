@@ -136,17 +136,17 @@ const itemVariants = {
                </h1>
                <p className="text-[0.95rem] text-slate-200 sm:text-[1.02rem] md:text-[1.1rem]">
                  Full-Stack Engineer ·{" "}
-                 <span className="text-sky-300">Next.js</span>,{" "}
-                 <span className="text-sky-300">React</span>, Node.js
+                 <span className="text-sky-300">.NET</span> &{" "}
+                 <span className="text-sky-300">MERN</span> · Next.js, React, Node.js
                </p>
              </motion.div>
              <motion.p
                variants={itemVariants}
                className="max-w-xl text-[0.9rem] text-slate-300 sm:text-sm md:text-[0.98rem] md:leading-relaxed"
              >
-               Self-taught full‑stack engineer crafting performant, production-grade experiences
-               for startups and enterprises. I specialise in designing clean architectures,
-               refined interfaces, and reliable systems that scale with the product.
+               Experienced full‑stack engineer crafting performant, production-grade experiences
+               for startups and enterprises. I specialise in both .NET and MERN stacks—designing
+               clean architectures, refined interfaces, and reliable systems that scale with the product.
              </motion.p>
              <motion.div
                variants={itemVariants}
