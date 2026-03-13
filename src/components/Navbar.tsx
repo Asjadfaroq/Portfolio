@@ -27,11 +27,19 @@
 
    return (
      <motion.header
-       className="sticky top-0 z-20"
+      className="sticky top-0 z-20"
        initial={false}
        animate={{
-         backgroundColor: scrolled ? "rgba(2,6,23,0.92)" : "rgba(0,0,0,0.9)",
-         backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
+        backgroundColor: scrolled
+          ? "rgba(2, 6, 23, 0.96)"
+          : "rgba(2, 6, 23, 0.82)",
+        boxShadow: scrolled
+          ? "0 18px 45px rgba(15, 23, 42, 0.85)"
+          : "0 14px 35px rgba(15, 23, 42, 0.7)",
+        borderBottom: scrolled
+          ? "1px solid rgba(148, 163, 184, 0.25)"
+          : "1px solid rgba(30, 64, 175, 0.45)",
+        backdropFilter: "blur(20px)",
        }}
        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
      >
