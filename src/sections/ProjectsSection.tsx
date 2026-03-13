@@ -14,6 +14,10 @@ import {
   SiRedux,
   SiReactrouter,
   SiGooglegemini,
+  SiDotnet,
+  SiPostgresql,
+  SiSupabase,
+  SiHuggingface,
 } from "react-icons/si";
 
 const techIcons: Record<string, ComponentType<{ className?: string }>> = {
@@ -25,6 +29,10 @@ const techIcons: Record<string, ComponentType<{ className?: string }>> = {
   Redux: SiRedux,
   "React Router": SiReactrouter,
   Gemini: SiGooglegemini,
+  ".NET": SiDotnet,
+  PostgreSQL: SiPostgresql,
+  Supabase: SiSupabase,
+  "Hugging Face": SiHuggingface,
 };
 
 const techColors: Record<string, string> = {
@@ -36,6 +44,10 @@ const techColors: Record<string, string> = {
   Redux: "#a855f7",
   "React Router": "#CA4245",
   Gemini: "#8E75B2",
+  ".NET": "#512bd4",
+  PostgreSQL: "#4169e1",
+  Supabase: "#3ecf8e",
+  "Hugging Face": "#ffd21e",
 };
 
 const containerVariants = {
@@ -63,13 +75,13 @@ const cardVariants = {
 
 const projects = [
   {
-    title: "ResearchX",
+    title: "Doc Intelligence",
     description:
-      "AI-powered research document generator that creates comprehensive research papers using advanced AI models.",
-    tech: ["TS", "Next.js"],
+      "Production-ready RAG system for querying PDFs and documents with cited answers. Built with ASP.NET Core, Next.js, EF Core, and Supabase (PostgreSQL + pgvector), using Hugging Face for embeddings and Groq for fast, reliable responses.",
+    tech: ["Next.js", ".NET", "TS", "PostgreSQL", "Supabase", "Hugging Face"],
     image: "/projects/fillchat.png",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://documentintelligenceplatform.vercel.app/",
+    githubUrl: "https://github.com/Asjadfaroq/document-intelligence-platform",
   },
   {
     title: "ReelSense",
@@ -180,11 +192,18 @@ export function ProjectsSection() {
                   <h3 className="text-base font-semibold text-slate-50">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
                     {project.tech.map((tech) => {
                       const Icon = techIcons[tech];
+                      const color = techColors[tech];
                       if (!Icon) return null;
-                      return <Icon key={tech} className="text-[1.5rem] md:text-[1.7rem]" />;
+                      return (
+                        <Icon
+                          key={tech}
+                          className="shrink-0 text-[1rem] md:text-[1.1rem]"
+                          style={{ color: color ?? "currentColor" }}
+                        />
+                      );
                     })}
                   </div>
                 </div>
@@ -192,12 +211,12 @@ export function ProjectsSection() {
                   {project.description}
                 </p>
               </div>
-              <div className="flex items-center gap-4 px-4 pb-3 pt-1 text-xs font-medium">
+              <div className="flex items-center gap-3 px-4 pb-3 pt-1 text-xs font-medium">
                 <a
                   href={project.liveUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sky-400 transition-colors duration-200 hover:text-sky-300"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-black/85 px-2.5 py-1 text-sky-300 transition-colors duration-200 hover:bg-black hover:text-sky-200"
                 >
                   <FaArrowUpRightFromSquare className="text-sm" />
                   <span>Live Demo</span>
@@ -206,7 +225,7 @@ export function ProjectsSection() {
                   href={project.githubUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-slate-400 transition-colors duration-200 hover:text-slate-200"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-black/75 px-2.5 py-1 text-slate-200 transition-colors duration-200 hover:bg-black hover:text-slate-50"
                 >
                   <FaGithub className="text-sm" />
                   <span>GitHub</span>
