@@ -61,14 +61,13 @@ export const GitHubGraphs: React.FC<GitHubGraphsProps> = ({
         <GitHubCalendar
           username={username}
           errorMessage="Could not fetch GitHub stats"
-          hideColorLegend
+          showColorLegend={false}
           theme={theme}
           colorScheme={colorScheme}
           showWeekdayLabels={false}
           blockSize={10}
           blockMargin={2}
           transformData={transformRange}
-          until={getDateRange().end}
           labels={{ totalCount: "1091 contributions in the last year" }}
         />
       </div>
@@ -77,14 +76,13 @@ export const GitHubGraphs: React.FC<GitHubGraphsProps> = ({
         <GitHubCalendar
           username={username}
           errorMessage="Could not fetch GitHub stats"
-          hideColorLegend={false}
+          showColorLegend
           theme={theme}
           colorScheme={colorScheme}
           showWeekdayLabels={false}
           blockSize={10}
           blockMargin={2}
           transformData={transformRange}
-          until={getDateRange().end}
           labels={{ totalCount: "1091 contributions in the last year" }}
         />
       </div>

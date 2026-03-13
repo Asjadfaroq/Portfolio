@@ -53,7 +53,10 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   },
 };
 
@@ -154,14 +157,7 @@ export function ProjectsSection() {
                     {project.tech.map((tech) => {
                       const Icon = techIcons[tech];
                       if (!Icon) return null;
-                      return (
-                        <Icon
-                          key={tech}
-                          className="text-[1.5rem] md:text-[1.7rem]"
-                          style={{ color: techColors[tech] ?? "#e5e7eb" }}
-                          title={tech}
-                        />
-                      );
+                      return <Icon key={tech} className="text-[1.5rem] md:text-[1.7rem]" />;
                     })}
                   </div>
                 </div>

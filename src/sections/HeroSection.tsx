@@ -22,12 +22,15 @@
    },
  };
 
- const itemVariants = {
+const itemVariants = {
    hidden: { opacity: 0, y: 20 },
    visible: {
      opacity: 1,
      y: 0,
-     transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
    },
  };
 
@@ -39,17 +42,17 @@
    return (
      <section id="about" className="section relative">
        <BackgroundOrbits />
-       <motion.div
-         variants={containerVariants}
-         initial="hidden"
-         animate="visible"
-         className="flex flex-col gap-7 pb-8 pt-5 md:flex-row md:items-center md:gap-10 md:pt-7"
-       >
-         <div className="flex flex-1 items-start gap-7">
-           <div className="flex flex-col items-center gap-3">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-5 pb-8 pt-4 md:flex md:items-center md:gap-10 md:space-y-0 md:pt-7"
+      >
+        <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:gap-7">
+          <div className="flex flex-col items-center gap-3">
              <motion.div
                variants={itemVariants}
-               className="relative h-36 w-36 shrink-0 overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/90 shadow-[0_18px_45px_rgba(15,23,42,0.9)] md:h-40 md:w-40"
+              className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/90 shadow-[0_18px_45px_rgba(15,23,42,0.9)] sm:h-32 sm:w-32 md:h-40 md:w-40"
                whileHover={{ scale: 1.03, rotate: -1.5 }}
                transition={spring}
              >
@@ -117,7 +120,7 @@
                </motion.a>
              </motion.div>
            </div>
-           <div className="space-y-4">
+          <div className="w-full max-w-xl space-y-4 text-center sm:space-y-5 md:text-left">
              <motion.div
                variants={itemVariants}
                className="inline-flex items-center gap-2 rounded-full bg-slate-900/70 px-3 py-1 text-[0.7rem] font-medium text-slate-300 ring-1 ring-slate-700/70 backdrop-blur-sm"
@@ -125,11 +128,11 @@
                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                <span>Available for select projects & roles</span>
              </motion.div>
-             <motion.div variants={itemVariants} className="space-y-2.5">
-               <h1 className="text-[2.6rem] font-extrabold tracking-tight text-slate-50 sm:text-[3.2rem] md:text-[3.6rem]">
+            <motion.div variants={itemVariants} className="space-y-2.5">
+               <h1 className="text-[2.1rem] font-extrabold tracking-tight text-slate-50 sm:text-[2.6rem] md:text-[3.4rem]">
                  <span className="heading-gradient block">Asjad Farooq</span>
                </h1>
-               <p className="text-[1.05rem] text-slate-200 md:text-[1.1rem]">
+               <p className="text-[0.95rem] text-slate-200 sm:text-[1.02rem] md:text-[1.1rem]">
                  Full-Stack Engineer ·{" "}
                  <span className="text-sky-300">Next.js</span>,{" "}
                  <span className="text-sky-300">React</span>, Node.js
@@ -137,7 +140,7 @@
              </motion.div>
              <motion.p
                variants={itemVariants}
-               className="max-w-xl text-sm text-slate-300 md:text-[0.98rem] md:leading-relaxed"
+               className="max-w-xl text-[0.9rem] text-slate-300 sm:text-sm md:text-[0.98rem] md:leading-relaxed"
              >
                Self-taught full‑stack engineer crafting performant, production-grade experiences
                for startups and enterprises. I specialise in designing clean architectures,
@@ -145,11 +148,11 @@
              </motion.p>
              <motion.div
                variants={itemVariants}
-               className="mt-3 flex flex-wrap items-center gap-3"
+               className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3"
              >
                <motion.a
                  href="#projects"
-                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_18px_35px_rgba(56,189,248,0.35)] transition-colors hover:bg-sky-400"
+                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_18px_35px_rgba(56,189,248,0.35)] transition-colors hover:bg-sky-400 sm:w-auto w-full"
                  whileHover={{ scale: 1.03, y: -1 }}
                  whileTap={{ scale: 0.98, y: 0 }}
                  transition={spring}
@@ -158,7 +161,7 @@
                </motion.a>
                <motion.a
                  href="#contact"
-                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-transparent px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:border-sky-500 hover:bg-slate-900/70 hover:text-sky-300"
+                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-transparent px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:border-sky-500 hover:bg-slate-900/70 hover:text-sky-300 sm:w-auto w-full"
                  whileHover={{ scale: 1.03, y: -1 }}
                  whileTap={{ scale: 0.98, y: 0 }}
                  transition={spring}
