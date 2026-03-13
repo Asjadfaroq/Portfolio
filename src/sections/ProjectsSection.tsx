@@ -165,18 +165,20 @@ export function ProjectsSection() {
             <motion.div
               key={project.title}
               variants={cardVariants}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-700/70 text-sm text-slate-200 shadow-lg shadow-slate-900/70 transition-colors hover:border-slate-600/80"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-700/50 bg-slate-950/80 text-sm text-slate-200 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] transition-[border-color,box-shadow] duration-300 hover:border-sky-500/25 hover:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.6),0_0_0_1px_rgba(56,189,248,0.08)]"
               whileHover={{
-                y: -8,
-                transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
+                y: -4,
+                transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
               }}
             >
+              {/* Accent stripe */}
+              <div className="absolute left-0 top-0 z-10 h-full w-1 bg-gradient-to-b from-sky-500/70 via-sky-400/40 to-transparent opacity-90" />
               <button
                 type="button"
                 onClick={() =>
                   setSelectedImage({ src: project.image, title: project.title })
                 }
-                className="relative h-40 w-full overflow-hidden bg-slate-900/70 text-left sm:h-44 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70"
+                className="relative h-40 w-full overflow-hidden border-b border-slate-700/50 bg-slate-900/70 text-left sm:h-44 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70 focus-visible:ring-inset"
               >
                 <Image
                   src={project.image}
@@ -185,11 +187,11 @@ export function ProjectsSection() {
                   className="object-cover scale-105 transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-95" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
               </button>
-              <div className="flex flex-1 flex-col gap-3 bg-black/95 p-4">
+              <div className="flex flex-1 flex-col gap-3 border-b border-slate-800/80 bg-black px-5 py-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-base font-semibold text-slate-50">
+                  <h3 className="text-base font-semibold tracking-tight text-slate-50">
                     {project.title}
                   </h3>
                   <div className="flex items-center gap-2">
@@ -207,27 +209,27 @@ export function ProjectsSection() {
                     })}
                   </div>
                 </div>
-                <p className="text-[0.85rem] leading-relaxed text-slate-300">
+                <p className="text-[0.85rem] leading-relaxed text-slate-400">
                   {project.description}
                 </p>
               </div>
-              <div className="flex items-center gap-3 px-4 pb-3 pt-1 text-xs font-medium">
+              <div className="flex items-center gap-3 border-t border-slate-800/80 bg-black px-5 py-3">
                 <a
                   href={project.liveUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-black/85 px-2.5 py-1 text-sky-300 transition-colors duration-200 hover:bg-black hover:text-sky-200"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600/80 bg-black px-3 py-1.5 text-xs font-medium text-sky-300 transition-colors duration-200 hover:border-sky-500/50 hover:text-sky-200"
                 >
-                  <FaArrowUpRightFromSquare className="text-sm" />
+                  <FaArrowUpRightFromSquare className="text-xs" />
                   <span>Live Demo</span>
                 </a>
                 <a
                   href={project.githubUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-black/75 px-2.5 py-1 text-slate-200 transition-colors duration-200 hover:bg-black hover:text-slate-50"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600/80 bg-black px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:text-slate-50"
                 >
-                  <FaGithub className="text-sm" />
+                  <FaGithub className="text-xs" />
                   <span>GitHub</span>
                 </a>
               </div>
