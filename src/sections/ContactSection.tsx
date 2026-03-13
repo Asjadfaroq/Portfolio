@@ -40,9 +40,12 @@ export function ContactSection() {
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-900/80 text-sky-400 md:h-11 md:w-11">
             <FaEnvelopeOpenText className="text-xl md:text-2xl" />
           </div>
-          <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">
-            Let&apos;s Build Something Amazing
-          </h2>
+          <div className="flex items-center gap-2">
+            <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">
+              Let&apos;s Build Something Amazing
+            </h2>
+            <span className="h-1 w-8 rounded-full bg-gradient-to-r from-sky-500/80 to-sky-400/40" aria-hidden />
+          </div>
         </motion.div>
         <motion.div variants={itemVariants} className="heading-divider" />
 

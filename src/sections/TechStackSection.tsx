@@ -263,7 +263,10 @@ export function TechStackSection() {
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-900/80 text-sky-400 md:h-11 md:w-11">
               <FaCode className="text-xl md:text-2xl" />
             </div>
-            <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]" children="Tech Arsenal" />
+            <div className="flex items-center gap-2">
+              <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">Tech Arsenal</h2>
+              <span className="h-1 w-8 rounded-full bg-gradient-to-r from-sky-500/80 to-sky-400/40" aria-hidden />
+            </div>
           </div>
         </div>
         <div className="heading-divider" />

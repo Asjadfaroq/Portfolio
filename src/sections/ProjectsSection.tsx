@@ -4,7 +4,7 @@ import type { ComponentType } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaFolderOpen, FaGithub, FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaFolderOpen, FaGithub, FaArrowUpRightFromSquare, FaMagnifyingGlassPlus } from "react-icons/fa6";
 import {
   SiTypescript,
   SiNextdotjs,
@@ -147,9 +147,12 @@ export function ProjectsSection() {
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-900/80 text-sky-400 md:h-11 md:w-11">
               <FaFolderOpen className="text-xl md:text-2xl" />
             </div>
-            <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">
-              Featured Projects
-            </h2>
+            <div className="flex items-center gap-2">
+              <h2 className="heading-gradient text-[1.9rem] font-bold tracking-tight md:text-[2.2rem]">
+                Featured Projects
+              </h2>
+              <span className="h-1 w-8 rounded-full bg-gradient-to-r from-sky-500/80 to-sky-400/40" aria-hidden />
+            </div>
           </div>
         </div>
         <div className="heading-divider" />
@@ -188,6 +191,11 @@ export function ProjectsSection() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-400/60 bg-black/60 backdrop-blur-sm">
+                    <FaMagnifyingGlassPlus className="text-slate-200 text-sm" />
+                  </span>
+                </span>
               </button>
               <div className="flex flex-1 flex-col gap-3 border-b border-slate-800/80 bg-black px-5 py-4">
                 <div className="flex items-center justify-between gap-3">
