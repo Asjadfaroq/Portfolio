@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import HeroBackground from "@/components/HeroBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,8 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased bg-slate-950`}>
-        {children}
+      <body className={`${inter.variable} antialiased`}>
+        {/* Global background for the entire app */}
+        <HeroBackground />
+        <main style={{ position: "relative", zIndex: 1 }}>
+          {children}
+        </main>
       </body>
     </html>
   );
