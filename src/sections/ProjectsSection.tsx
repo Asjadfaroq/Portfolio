@@ -3,6 +3,7 @@
 import type { ComponentType } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaFolderOpen, FaGithub, FaArrowUpRightFromSquare } from "react-icons/fa6";
 import {
   SiTypescript,
@@ -66,7 +67,7 @@ const projects = [
     description:
       "AI-powered research document generator that creates comprehensive research papers using advanced AI models.",
     tech: ["TS", "Next.js"],
-    image: "/projects/researchx.png",
+    image: "/projects/fillchat.png",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -99,7 +100,27 @@ const projects = [
   },
 ];
 
+type SelectedProjectImage = {
+  src: string;
+  title: string;
+};
+
 export function ProjectsSection() {
+  const [selectedImage, setSelectedImage] = useState<SelectedProjectImage | null>(null);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
+
   return (
     <section id="projects" className="section">
       <motion.div
@@ -138,7 +159,13 @@ export function ProjectsSection() {
                 transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
               }}
             >
-              <div className="relative h-40 w-full overflow-hidden bg-slate-900/70 sm:h-44">
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedImage({ src: project.image, title: project.title })
+                }
+                className="relative h-40 w-full overflow-hidden bg-slate-900/70 text-left sm:h-44 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70"
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -147,7 +174,7 @@ export function ProjectsSection() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-95" />
-              </div>
+              </button>
               <div className="flex flex-1 flex-col gap-3 bg-black/95 p-4">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-base font-semibold text-slate-50">
@@ -188,6 +215,38 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </motion.div>
+        {selectedImage && (
+          <div
+            aria-hidden
+            className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div
+              className="relative max-h-[80vh] w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950/95 shadow-2xl shadow-black/80"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="relative h-[55vh] w-full sm:h-[65vh]">
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                />
+              </div>
+              <div className="flex items-center justify-between gap-3 border-t border-slate-800/80 bg-slate-950/95 px-4 py-2.5 text-xs text-slate-300">
+                <span className="truncate">{selectedImage.title}</span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage(null)}
+                  className="rounded-md border border-slate-600/80 px-2 py-0.5 text-[0.7rem] font-medium text-slate-100 hover:border-sky-500 hover:text-sky-300"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </motion.div>
     </section>
   );
