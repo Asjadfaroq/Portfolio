@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asjad Farooq · Portfolio
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+**[Live Site](https://asjadfarooq.netlify.app/)** · **[LinkedIn](https://linkedin.com/in/asjadfarooqconnect)** · **[GitHub](https://github.com/asjadfarooq)**
+
+</div>
+
+---
+
+A modern, performant portfolio site showcasing experience, projects, and skills. Built with **Next.js**, **React**, and **Tailwind CSS** for a clean, responsive experience.
+
+---
+
+## ✨ Features
+
+- **Responsive design** — Optimized for desktop, tablet, and mobile
+- **Smooth animations** — Framer Motion for polished interactions
+- **GitHub activity** — Contribution calendar and repository highlights
+- **Project showcase** — Featured work with live demos and source links
+- **Professional journey** — Timeline of roles and experience
+- **Tech stack section** — Clear overview of tools and technologies
+
+---
+
+## 🛠 Tech Stack
+
+| Category   | Technologies |
+| ---------- | ------------ |
+| **Framework** | Next.js 16, React 19 |
+| **Styling**   | Tailwind CSS 4 |
+| **Animation** | Framer Motion |
+| **Language**  | TypeScript |
+| **Icons**     | React Icons |
+| **Deployment**| Netlify |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** 18+  
+- **npm**, **yarn**, **pnpm**, or **bun**
+
+### Install & Run
 
 ```bash
+# Clone the repository
+git clone https://github.com/asjadfarooq/Portfolio.git
+cd Portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `npm run dev`  | Start dev server         |
+| `npm run build`| Production build         |
+| `npm run start`| Start production server  |
+| `npm run lint` | Run ESLint               |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Deployment (Netlify)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is deployed on **Netlify**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Live URL:** [https://asjadfarooq.netlify.app/](https://asjadfarooq.netlify.app/)
 
-## Deploy on Vercel
+To deploy your own copy:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push the repo to GitHub.
+2. In [Netlify](https://www.netlify.com/), connect the repository.
+3. Build command: `npm run build` (Next.js is auto-detected).
+4. Deploy.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📁 Project Structure
+
+```
+Portfolio/
+├── app/              # Next.js App Router pages & layout
+├── public/           # Static assets
+├── components/       # Reusable UI components (if present)
+└── package.json
+```
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Asjad Farooq** · Full-Stack Engineer · [asjadfarooq.netlify.app](https://asjadfarooq.netlify.app/)
+
+</div>
