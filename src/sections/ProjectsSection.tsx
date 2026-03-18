@@ -208,11 +208,13 @@ export function ProjectsSection() {
                       const color = techColors[tech];
                       if (!Icon) return null;
                       return (
-                        <Icon
+                        <span
                           key={tech}
-                          className="shrink-0 text-[1rem] md:text-[1.1rem]"
+                          className="inline-flex shrink-0 items-center text-[1rem] md:text-[1.1rem]"
                           style={{ color: color ?? "currentColor" }}
-                        />
+                        >
+                          <Icon className="shrink-0 text-[1rem] md:text-[1.1rem]" />
+                        </span>
                       );
                     })}
                   </div>
