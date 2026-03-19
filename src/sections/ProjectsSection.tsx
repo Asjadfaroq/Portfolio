@@ -89,7 +89,7 @@ const projects = [
       "Movie discovery app powered by Gemini AI for smart search and recommendations. Built with React and React Router for a smooth, modern experience.",
     tech: ["React", "React Router", "Gemini"],
     image: "/projects/ReelSense.png",
-    liveUrl: "https://movieapp-1-9vz5.onrender.com/",
+    liveUrl: "https://reel-sense.vercel.app",
     githubUrl: "https://github.com/Asjadfaroq/ReelSense",
   },
   {
